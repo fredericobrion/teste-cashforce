@@ -8,7 +8,7 @@ type ServiceResponseError = {
 };
 
 type ServiceResponseSuccess<T> = {
-  status: 'SUCCESSFUL' | 'CREATED';
+  status: 'SUCCESSFUL';
   data: T;
 };
 
