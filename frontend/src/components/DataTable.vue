@@ -31,7 +31,9 @@
             <button v-if="!order.showDetails" @click="toggleDetails(order.orderNumber)">
               Dados do cedente
             </button>
-            <button v-if="order.showDetails" @click="toggleDetails(order.orderNumber)">
+              <p v-if="order.showDetails"><strong>Nome: </strong>{{ order.provider.name }}</p>
+              <p v-if="order.showDetails">{{ order.provider.tradingName }}</p>
+            <button v-if="order.showDetails" @click="toggleDetails(order.orderNumber)" class="hide-btn">
               Ocultar dados
             </button>
           </td>
@@ -170,6 +172,11 @@ td:last-of-type {
   border-right: 1px solid var(--border-gray);
 }
 
+
+td p {
+
+}
+
 td button {
   background: none;
   border: 1px solid var(--light-blue);
@@ -177,10 +184,18 @@ td button {
   color: var(--middle-gray-text);
   cursor: pointer;
   font-size: 12px;
+  height: 35px;
+  margin-right: 8px;
+  padding: 5px;
+  width: 165px;
 }
 
 td button:hover {
   border: 1px solid var(--dark-blue);
   color: var(--dark-gray-text);
+}
+
+.hide-btn {
+  margin: 5px 0;
 }
 </style>

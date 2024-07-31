@@ -1,4 +1,5 @@
 import BuyerSequelize from "../../database/models/buyer.model";
+import CnpjSequelize from "../../database/models/cnpj.model";
 import OrderSequelize from "../../database/models/order.model";
 import ProviderSequelize from "../../database/models/provider.model";
 import { OrderDetailedDto } from "../../dto/order";
@@ -12,12 +13,15 @@ export class OrderSequelizeRepository implements IOrderRepository {
       include: [
         { model: BuyerSequelize, as: "buyer", attributes: ["name"] },
         { model: ProviderSequelize, as: "provider", attributes: ["name"] },
+        { model: CnpjSequelize, as: "cnpjn", attributes: ["cnpj"] },
       ],
     });
 
+    console.log(orders[0].cnpjn);
+
     return orders.map((order) => ({
       orderNumber: order.orderNumber,
-      emissionDate: order.emissionDate, // Pode ser necessário ajustar o formato da data
+      emissionDate: order.emissionDate,
       value: order.value,
       orderStatusBuyer: order.orderStatusBuyer,
       buyer: {
@@ -25,6 +29,7 @@ export class OrderSequelizeRepository implements IOrderRepository {
       },
       provider: {
         name: order.provider?.name ?? "",
+        cnpj: order.cnpjn?.cnpj ?? "",
       },
     }));
   }

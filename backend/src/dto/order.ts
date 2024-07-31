@@ -8,5 +8,6 @@ export interface OrderDetailedDto {
   };
   provider: {
     name: string;
+    cnpj: string
   };
 }
