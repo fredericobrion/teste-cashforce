@@ -1,7 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
 import OrderService from '../../../src/service/order.service';
 import OrderController from '../../../src/controller/order.controller';
-import { IOrderRepository } from '../../../src/repository/order/order.interface';
 import { orders } from './mocks';
 
 const mockService: jest.Mocked<OrderService> = {
