@@ -1,9 +1,9 @@
-import OrdersService from "../service/orders.service";
+import OrderService from "../service/order.service";
 import { Request, Response } from 'express';
 
-export default class OrdersController {
+export default class OrderController {
   constructor(
-    private readonly service: OrdersService
+    private readonly service: OrderService
   ) {}
 
   async findAll(_req: Request, res: Response) {

@@ -1,7 +1,8 @@
 import { Model, INTEGER, STRING } from "sequelize";
 import db from ".";
+import IProvider from "../../interfaces/provider";
 
-export default class Sponsors extends Model {
+export default class ProviderSequelize extends Model implements IProvider {
   declare id: number;
   declare name: string;
   declare tradingName: string;
@@ -22,15 +23,16 @@ export default class Sponsors extends Model {
   declare bank: string;
   declare bankAgency: string;
   declare account: string;
+  declare documents: string;
   declare phoneNumber: string;
   declare situation: string;
   declare situationDate: string;
-  declare createdAt: string;
-  declare updatedAt: string;
+  declare createdAt: Date;
+  declare updatedAt: Date;
   declare cnpjId: number;
   declare email: string;
 }
-Sponsors.init(
+ProviderSequelize.init(
   {
     id: {
       allowNull: false,
@@ -113,6 +115,10 @@ Sponsors.init(
       type: STRING,
       defaultValue: null,
     },
+    documents: {
+      type: STRING,
+      defaultValue: null,
+    },
     phoneNumber: {
       type: STRING,
       defaultValue: null,
@@ -137,7 +143,7 @@ Sponsors.init(
   },
   {
     sequelize: db,
-    modelName: "sponsors",
+    modelName: "providers",
     timestamps: true,
   }
 );

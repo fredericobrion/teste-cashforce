@@ -1,7 +1,8 @@
 import { Model, INTEGER, STRING, DATE, TINYINT } from "sequelize";
 import db from ".";
+import IOrderportion from "../../interfaces/orderportion";
 
-export default class Offers extends Model {
+export default class OrderPortionSequelize extends Model implements IOrderportion {
   declare id: number;
   declare tax: string;
   declare tariff: string;
@@ -11,37 +12,37 @@ export default class Offers extends Model {
   declare expiresIn: string;
   declare paymentStatusSponsor: number;
   declare paymentStatusProvider: number;
-  declare createdAt: string;
-  declare updatedAt: string;
+  declare createdAt: Date;
+  declare updatedAt: Date;
   declare orderId: number;
   declare sponsorId: number;
 }
-Offers.init(
+OrderPortionSequelize.init(
   {
     id: {
-      type: INTEGER,
       allowNull: false,
       primaryKey: true,
+      type: INTEGER,
     },
     tax: {
-      type: STRING,
       allowNull: false,
+      type: STRING,
     },
     tariff: {
-      type: STRING,
       allowNull: false,
+      type: STRING,
     },
     adValorem: {
-      type: STRING,
       allowNull: false,
+      type: STRING,
     },
     float: {
-      type: STRING,
       allowNull: false,
+      type: STRING,
     },
     iof: {
-      type: STRING,
       allowNull: false,
+      type: STRING,
     },
     expiresIn: {
       type: DATE,
@@ -66,7 +67,7 @@ Offers.init(
   },
   {
     sequelize: db,
-    modelName: "offers",
+    modelName: "orderportions",
     timestamps: true,
   }
 );

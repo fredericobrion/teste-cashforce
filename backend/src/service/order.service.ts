@@ -1,6 +1,6 @@
 import { IOrderRepository } from "../repository/order/order.interface";
 
-export default class OrdersService {
+export default class OrderService {
   constructor(private readonly repository: IOrderRepository) {}
 
   async findAll() {

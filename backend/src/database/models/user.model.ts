@@ -1,7 +1,8 @@
 import { Model, INTEGER, STRING, TINYINT } from "sequelize";
 import db from ".";
+import IUser from "../../interfaces/user";
 
-export default class Users extends Model {
+export default class UserSequelize extends Model implements IUser {
   declare id: number;
   declare name: string;
   declare email: string;
@@ -10,11 +11,12 @@ export default class Users extends Model {
   declare departament: string;
   declare verificationCode: string;
   declare emailChecked: number;
-  declare createdAt: string;
-  declare updatedAt: string;
+  declare createdAt: Date;
+  declare updatedAt: Date;
   declare cashforceAdm: number;
 }
-Users.init(
+
+UserSequelize.init(
   {
     id: {
       allowNull: false,

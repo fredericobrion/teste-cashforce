@@ -1,4 +1,4 @@
-interface IOrder {
+export default interface IOrder {
   id: number;
   orderNfId: string;
   orderNumber: string;
@@ -11,8 +11,8 @@ interface IOrder {
   nNf: string;
   CTE: string;
   value: string;
-  createdAt: string;
-  updatedAt: string;
+  createdAt: Date;
+  updatedAt: Date;
   cnpjId: number;
   userId: number;
   buyerId: number;
@@ -23,5 +23,3 @@ interface IOrder {
   cargoPackingList: string;
   deliveryCtrc: string;
 }
-
-export default IOrder;

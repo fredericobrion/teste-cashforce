@@ -1,15 +1,16 @@
-import { DATE, INTEGER, Model, STRING } from "sequelize";
+import { INTEGER, Model, STRING } from "sequelize";
 import db from ".";
+import ICnpj from "../../interfaces/cnpj";
 
-export default class Cnpjs extends Model {
+export default class CnpjSequelize extends Model implements ICnpj {
   declare id: number;
   declare cnpj: string;
   declare companyType: string;
-  declare createdAt: string;
-  declare updatedAt: string;
+  declare createdAt: Date;
+  declare updatedAt: Date;
 }
 
-Cnpjs.init(
+CnpjSequelize.init(
   {
     id: {
       type: INTEGER,

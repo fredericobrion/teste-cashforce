@@ -1,9 +1,9 @@
 import { Model, INTEGER, STRING } from "sequelize";
 import db from ".";
-import Cnpjs from "./cnpjs.model";
-import Users from "./users.model";
-import Buyers from "./buyers.model";
-import Providers from "./providers.model";
+import CnpjSequelize from "./cnpj.model";
+import UserSequelize from "./user.model";
+import BuyerSequelize from "./buyer.model";
+import ProviderSequelize from "./provider.model";
 import IOrder from "../../interfaces/order";
 
 export default class OrderSequelize extends Model implements IOrder {
@@ -19,8 +19,8 @@ export default class OrderSequelize extends Model implements IOrder {
   declare nNf: string;
   declare CTE: string;
   declare value: string;
-  declare createdAt: string;
-  declare updatedAt: string;
+  declare createdAt: Date;
+  declare updatedAt: Date;
   declare cnpjId: number;
   declare userId: number;
   declare buyerId: number;
@@ -127,12 +127,12 @@ OrderSequelize.init(
   }
 );
 
-Cnpjs.hasMany(OrderSequelize, { foreignKey: "cnpjId", as: "cnpjn" });
-Users.hasMany(OrderSequelize, { foreignKey: "userId", as: "user" });
-Buyers.hasMany(OrderSequelize, { foreignKey: "buyerId", as: "buyer" });
-Providers.hasMany(OrderSequelize, { foreignKey: "providerId", as: "provider" });
+CnpjSequelize.hasMany(OrderSequelize, { foreignKey: "cnpjId", as: "cnpjn" });
+UserSequelize.hasMany(OrderSequelize, { foreignKey: "userId", as: "user" });
+BuyerSequelize.hasMany(OrderSequelize, { foreignKey: "buyerId", as: "buyer" });
+ProviderSequelize.hasMany(OrderSequelize, { foreignKey: "providerId", as: "provider" });
 
-OrderSequelize.belongsTo(Cnpjs, { foreignKey: "cnpjId", as: "cnpjn" });
-OrderSequelize.belongsTo(Users, { foreignKey: "userId", as: "user" });
-OrderSequelize.belongsTo(Buyers, { foreignKey: "buyerId", as: "buyer" });
-OrderSequelize.belongsTo(Providers, { foreignKey: "providerId", as: "provider" });
+OrderSequelize.belongsTo(CnpjSequelize, { foreignKey: "cnpjId", as: "cnpjn" });
+OrderSequelize.belongsTo(UserSequelize, { foreignKey: "userId", as: "user" });
+OrderSequelize.belongsTo(BuyerSequelize, { foreignKey: "buyerId", as: "buyer" });
+OrderSequelize.belongsTo(ProviderSequelize, { foreignKey: "providerId", as: "provider" });

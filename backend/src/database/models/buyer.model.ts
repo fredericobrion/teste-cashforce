@@ -1,7 +1,8 @@
-import { Model, INTEGER, STRING, DATE, TINYINT } from "sequelize";
+import { Model, INTEGER, STRING, TINYINT } from "sequelize";
 import db from ".";
+import IBuyer from "../../interfaces/buyer";
 
-export default class Buyers extends Model {
+export default class BuyerSequelize extends Model implements IBuyer{
   declare id: number;
   declare name: string;
   declare tradingName: string;
@@ -22,14 +23,14 @@ export default class Buyers extends Model {
   declare phoneNumber: string;
   declare situation: string;
   declare situationDate: string;
-  declare createdAt: string;
-  declare updatedAt: string;
+  declare createdAt: Date;
+  declare updatedAt: Date;
   declare cnpjId: number;
   declare confirm: number;
   declare email: string;
 }
 
-Buyers.init(
+BuyerSequelize.init(
   {
     id: {
       type: INTEGER,
