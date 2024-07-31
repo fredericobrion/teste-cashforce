@@ -1,4 +1,5 @@
 import express from 'express';
+import cors from 'cors';
 // import 'express-async-errors';
 
 import errorMiddleware from './middlewares/error';
@@ -24,15 +25,14 @@ class App {
   }
 
   private config():void {
-    const accessControl: express.RequestHandler = (_req, res, next) => {
-      res.header('Access-Control-Allow-Origin', '*');
-      res.header('Access-Control-Allow-Methods', 'GET,POST,DELETE,OPTIONS,PUT,PATCH');
-      res.header('Access-Control-Allow-Headers', '*');
-      next();
+    const corsOptions = {
+      origin: 'http://localhost:5173',
+      methods: ['GET'],
+      allowedHeaders: ['Content-Type'],
     };
 
     this.app.use(express.json());
-    this.app.use(accessControl);
+    this.app.use(cors(corsOptions));
   }
 
   public start(PORT: string | number): void {

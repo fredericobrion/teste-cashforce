@@ -1,10 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
+
 :root {
+  --dark-blue: rgba(2, 27, 81, 1);
+	--border-gray: rgba(223, 226, 235, 1);
+	--dark-gray-text: rgba(77, 85, 102, 1);
 	--green-text: rgba(0, 173, 140, 1);
-	--main-bg: rgba(251, 253, 254, 1);
-	--side-bg: rgba(225, 229, 236, 0.5);
+	--light-blue: rgba(202, 211, 255, 1);
+  --light-gray-text: rgba(161, 168, 184, 1);
+  --main-bg: rgba(251, 253, 254, 1);
+  --middle-gray-text: rgba(114, 125, 148, 1);
+  --side-bg: rgba(225, 229, 236, 0.5);
 }
 
 * {
-	margin: 0;
-	padding: 0;
+  margin: 0;
+  padding: 0;
+  font-family: 'DM Sans', sans-serif;
 }

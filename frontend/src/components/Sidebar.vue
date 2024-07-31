@@ -16,11 +16,11 @@ export default {
 
 <style scoped>
 .sidebar {
-  height: 100vh;
-  width: 288px;
   background-color: var(--side-bg);
   display: flex;
   flex-direction: column;
+  height: 100vh;
+  width: 288px;
 }
 
 .logo {
@@ -37,6 +37,7 @@ export default {
   cursor: pointer;
   display: flex;
   font-size: 18px;
+  font-weight: 500;
   height: 64px;
   padding-left: 21px;
   width: 100%;
