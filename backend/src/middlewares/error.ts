@@ -3,7 +3,7 @@ import HttpError from "../errors/httpError";
 
 export default function errorMiddleware(
   err: Error,
-  req: Request,
+  _req: Request,
   res: Response,
   next: NextFunction
 ) {

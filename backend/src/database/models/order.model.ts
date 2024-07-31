@@ -5,6 +5,7 @@ import UserSequelize from "./user.model";
 import BuyerSequelize from "./buyer.model";
 import ProviderSequelize from "./provider.model";
 import IOrder from "../../interfaces/order";
+import { DATE } from "sequelize";
 
 export default class OrderSequelize extends Model implements IOrder {
   declare id: number;
@@ -30,6 +31,9 @@ export default class OrderSequelize extends Model implements IOrder {
   declare deliveryReceipt: string;
   declare cargoPackingList: string;
   declare deliveryCtrc: string;
+
+  declare buyer?: BuyerSequelize;
+  declare provider?: ProviderSequelize;
 }
 
 OrderSequelize.init(
