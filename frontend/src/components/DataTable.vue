@@ -32,7 +32,7 @@
               Dados do cedente
             </button>
               <p v-if="order.showDetails"><strong>Nome: </strong>{{ order.provider.name }}</p>
-              <p v-if="order.showDetails">{{ order.provider.tradingName }}</p>
+              <p v-if="order.showDetails"><strong>CNPJ: </strong>{{ order.provider.cnpj }}</p>
             <button v-if="order.showDetails" @click="toggleDetails(order.orderNumber)" class="hide-btn">
               Ocultar dados
             </button>
@@ -174,7 +174,8 @@ td:last-of-type {
 
 
 td p {
-
+  font-size: 12px;
+  margin-top: 5px;
 }
 
 td button {

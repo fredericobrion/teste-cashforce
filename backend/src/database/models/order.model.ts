@@ -33,7 +33,7 @@ export default class OrderSequelize extends Model implements IOrder {
 
   declare buyer?: BuyerSequelize;
   declare provider?: ProviderSequelize;
-  declare cnpjn?: CnpjSequelize;
+  declare cnpjNumber?: CnpjSequelize;
 }
 
 OrderSequelize.init(
@@ -131,12 +131,14 @@ OrderSequelize.init(
   }
 );
 
-CnpjSequelize.hasMany(OrderSequelize, { foreignKey: "cnpjId", as: "cnpjn" });
-UserSequelize.hasMany(OrderSequelize, { foreignKey: "userId", as: "user" });
-BuyerSequelize.hasMany(OrderSequelize, { foreignKey: "buyerId", as: "buyer" });
-ProviderSequelize.hasMany(OrderSequelize, { foreignKey: "providerId", as: "provider" });
+CnpjSequelize.hasMany(OrderSequelize, { foreignKey: "cnpjId", as: "cnpjNumber" });
+OrderSequelize.belongsTo(CnpjSequelize, { foreignKey: "cnpjId", as: "cnpjNumber" });
 
-OrderSequelize.belongsTo(CnpjSequelize, { foreignKey: "cnpjId", as: "cnpjn" });
+UserSequelize.hasMany(OrderSequelize, { foreignKey: "userId", as: "user" });
 OrderSequelize.belongsTo(UserSequelize, { foreignKey: "userId", as: "user" });
+
+BuyerSequelize.hasMany(OrderSequelize, { foreignKey: "buyerId", as: "buyer" });
 OrderSequelize.belongsTo(BuyerSequelize, { foreignKey: "buyerId", as: "buyer" });
+
+ProviderSequelize.hasMany(OrderSequelize, { foreignKey: "providerId", as: "provider" });
 OrderSequelize.belongsTo(ProviderSequelize, { foreignKey: "providerId", as: "provider" });

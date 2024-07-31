@@ -4,7 +4,7 @@ type Buyer = {
 
 type Provider = {
   name: string
-  tradingName: string
+  cnpj: string
 }
 
 export type Order = {

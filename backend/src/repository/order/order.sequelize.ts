@@ -13,11 +13,9 @@ export class OrderSequelizeRepository implements IOrderRepository {
       include: [
         { model: BuyerSequelize, as: "buyer", attributes: ["name"] },
         { model: ProviderSequelize, as: "provider", attributes: ["name"] },
-        { model: CnpjSequelize, as: "cnpjn", attributes: ["cnpj"] },
+        { model: CnpjSequelize, as: "cnpjNumber", attributes: ["cnpj"] },
       ],
     });
-
-    console.log(orders[0].cnpjn);
 
     return orders.map((order) => ({
       orderNumber: order.orderNumber,
@@ -29,7 +27,7 @@ export class OrderSequelizeRepository implements IOrderRepository {
       },
       provider: {
         name: order.provider?.name ?? "",
-        cnpj: order.cnpjn?.cnpj ?? "",
+        cnpj: order.cnpjNumber?.cnpj ?? "",
       },
     }));
   }
