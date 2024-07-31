@@ -1,0 +1,10 @@
+:root {
+	--green-text: rgba(0, 173, 140, 1);
+	--main-bg: rgba(251, 253, 254, 1);
+	--side-bg: rgba(225, 229, 236, 0.5);
+}
+
+* {
+	margin: 0;
+	padding: 0;
+}
