@@ -5,6 +5,8 @@ import errorMiddleware from './middlewares/error';
 
 import router from './routes';
 
+const FRONT_END_URL = process.env.FRONT_END_URL || "http://localhost:4173";
+
 class App {
   public app: express.Express;
 
@@ -22,7 +24,7 @@ class App {
 
   private config():void {
     const corsOptions = {
-      origin: 'http://localhost:5173',
+      origin: FRONT_END_URL,
       methods: ['GET'],
       allowedHeaders: ['Content-Type'],
     };
