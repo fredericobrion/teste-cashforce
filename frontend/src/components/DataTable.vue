@@ -7,7 +7,13 @@
       </h2>
       <h3>Visualize as notas fiscais que você tem.</h3>
     </div>
-    <table>
+    <div v-if="error" class="error-message">
+      <p>Erro ao carregar dados.</p>
+    </div>
+    <div v-if="loading" class="loading">
+      <n-spin size="large" stroke="green"></n-spin>
+    </div>
+    <table v-if="!error">
       <thead>
         <tr>
           <th>NOTA FISCAL</th>
@@ -47,18 +53,33 @@
 import { defineComponent, ref, onMounted } from 'vue'
 import { fetchOrders } from '@/utils/api'
 import { OrderStatus, OrderStatusLabels } from '@/types/orderStatus'
+import { NSpin } from 'naive-ui'
 
 export default defineComponent({
   name: 'DataTable',
+  components: {
+    NSpin
+  },
   setup() {
     const orders = ref<any[]>([])
+      const loading = ref(true)
+      const error = ref<string | null>(null)
 
     const loadOrders = async () => {
       try {
+        loading.value = true
+        error.value = null
         const data = await fetchOrders()
         orders.value = data
-      } catch (error) {
+      } catch (err) {
         console.error('Failed to load orders', error)
+        if (err instanceof Error) {
+          error.value = err.message
+        } else {
+          error.value = 'Erro desconhecido'
+        }
+      } finally {
+        loading.value = false
       }
     }
 
@@ -90,6 +111,8 @@ export default defineComponent({
       formatCurrency,
       toggleDetails,
       getOrderStatusLabel,
+      loading,
+      error
     }
   }
 })
@@ -126,6 +149,17 @@ export default defineComponent({
   color: var(--middle-gray-text);
   font-size: 14px;
   font-weight: 400;
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+}
+
+.error-message {
+  color: rgb(197, 26, 26);
+  font-size: 20px;
+  margin-top: 50px;
 }
 
 table {

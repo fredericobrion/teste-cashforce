@@ -4,7 +4,7 @@
   --dark-blue: rgba(2, 27, 81, 1);
 	--border-gray: rgba(223, 226, 235, 1);
 	--dark-gray-text: rgba(77, 85, 102, 1);
-	--green-text: rgba(0, 173, 140, 1);
+	--green-text: rgb(0, 173, 140);
 	--light-blue: rgba(202, 211, 255, 1);
   --light-gray-text: rgba(161, 168, 184, 1);
   --main-bg: rgba(251, 253, 254, 1);
