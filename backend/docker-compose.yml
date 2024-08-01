@@ -12,10 +12,12 @@ services:
     depends_on:
       db:
         condition: service_healthy
+    env_file:
+      - .env
     environment:
-      - APP_PORT=3001
-      - DB_USER=root
-      - DB_PASS=123456
+      - APP_PORT=${APP_PORT}
+      - DB_USER=${DB_USER}
+      - DB_PASS=${MYSQL_ROOT_PASSWORD}
       - DB_HOST=db
       - DB_PORT=3306
     healthcheck:
@@ -27,8 +29,10 @@ services:
     container_name: db
     ports:
       - 3306:3306
+    env_file:
+      - .env
     environment:
-      - MYSQL_ROOT_PASSWORD=123456
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
     restart: 'always'
     healthcheck:
       test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
