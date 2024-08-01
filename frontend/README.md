@@ -20,5 +20,7 @@ Para perfeito funcionamento da aplicação é necessária que a API esteja ativa
   ```
   npm run build && npm run preview
   ```
+3. A aplicação estará disponível em <a href="http://localhost:4173" target="_blank">http://localhost:4173</a>
+
 ## 🗺️ Funcionalidades
 1. Exibição dos detalhes dos pedidos.
