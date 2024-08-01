@@ -1,6 +1,4 @@
 import { OrderDetailedDto } from "../../../src/dto/order";
-import HttpError from "../../../src/errors/httpError";
-import { IOrderRepository } from "../../../src/repository/order/order.interface";
 
 export const orders: OrderDetailedDto[] = [
   {
@@ -13,6 +11,7 @@ export const orders: OrderDetailedDto[] = [
     },
     provider: {
       name: "CEDENTE 002",
+      cnpj: "00000000000002"
     },
   },
   {
@@ -25,6 +24,7 @@ export const orders: OrderDetailedDto[] = [
     },
     provider: {
       name: "CEDENTE 002",
+      cnpj: "00000000000002"
     },
   },
   {
@@ -37,6 +37,7 @@ export const orders: OrderDetailedDto[] = [
     },
     provider: {
       name: "CEDENTE 002",
+      cnpj: "00000000000002"
     },
   },
 ];
