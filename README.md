@@ -30,6 +30,7 @@ O ```backend``` deverá ser inicializado para o correto funcionamento do ```fron
    ```
    npm run build && npm run preview
    ```
+7. A aplicação estará disponível em <a href="http://localhost:4173" target="_blank">http://localhost:4173</a>
 
 ## 🗺️ Funcionalidades
 ### Frontend
