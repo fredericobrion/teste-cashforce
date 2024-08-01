@@ -33,7 +33,7 @@ O ```backend``` deverá ser inicializado para o correto funcionamento do ```fron
 
 ## 🗺️ Funcionalidades
 ### Frontend
-Uma página onde é exibido os detalhes dos pedidos.
+Uma aplicação onde é exibido os detalhes dos pedidos.
 
 ### Backend
 Uma API RESTful que permite a listagem de pedidos.
