@@ -17,19 +17,19 @@ O ```backend``` deverá ser inicializado para o correto funcionamento do ```fron
    cd backend && cp .env.example .env
    ```
 3. Suba o container que conterá o banco de dados e a aplicação:
-  ```
-  docker-compose up -d --build
-  ```
+   ```
+   docker-compose up -d --build
+   ```
 4. Aguarde o banco de dados ficar operacional. Isso pode levar alguns minutos, já que o banco de dados será criado e populado através do ```docker-compose```.
 
 5. Em um novo terminal entre no diretório ```frontend``` e instale as dependências:
-  ```
-  npm install
-  ```
+   ```
+   npm install
+   ```
 6. Faça o build da aplicação e inicie ela localmente:
-  ```
-  npm run build && npm run preview
-  ```
+   ```
+   npm run build && npm run preview
+   ```
 
 ## 🗺️ Funcionalidades
 ### Frontend
